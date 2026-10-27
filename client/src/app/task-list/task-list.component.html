@@ -1,0 +1,16 @@
+<ul>
+  @for (task of tasks(); track task.id) {
+    <li>
+      <label>
+        <input
+          type="checkbox"
+          [checked]="task.done"
+          (change)="toggle(task.id, $any($event.target).checked)"
+        />
+        {{ task.title }}
+      </label>
+    </li>
+  } @empty {
+    <li>Aucune tâche</li>
+  }
+</ul>
