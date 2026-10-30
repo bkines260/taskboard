@@ -6,5 +6,12 @@
     placeholder="Ajouter une tâche…"
     [(ngModel)]="title"
   />
+  <input
+    class="tb-input tb-input--date"
+    type="date"
+    name="dueDate"
+    aria-label="Date d'échéance"
+    [(ngModel)]="dueDate"
+  />
   <button class="tb-button" type="submit">Ajouter</button>
 </form>

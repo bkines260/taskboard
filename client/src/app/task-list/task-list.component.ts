@@ -1,9 +1,10 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-task-list',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.css',
 })

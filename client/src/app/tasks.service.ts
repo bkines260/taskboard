@@ -6,6 +6,16 @@ export interface Task {
   id: number;
   title: string;
   done: boolean;
+  dueDate: string | null;
+}
+
+// Formats a YYYY-MM-DD due date as DD/MM/YYYY, without going through Date (avoids timezone shifts).
+export function formatDueDate(dueDate: string | null): string {
+  if (!dueDate) {
+    return '';
+  }
+  const [year, month, day] = dueDate.split('-');
+  return `${day}/${month}/${year}`;
 }
 
 @Injectable({
@@ -21,9 +31,10 @@ export class TasksService {
     return this.http.get<Task[]>(this.apiUrl).pipe(tap((tasks) => this.tasks.set(tasks)));
   }
 
-  addTask(title: string): Observable<Task> {
+  addTask(title: string, dueDate?: string): Observable<Task> {
+    const body = dueDate ? { title, dueDate } : { title };
     return this.http
-      .post<Task>(this.apiUrl, { title })
+      .post<Task>(this.apiUrl, body)
       .pipe(tap((task) => this.tasks.update((list) => [...list, task])));
   }
 

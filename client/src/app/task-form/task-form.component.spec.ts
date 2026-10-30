@@ -27,7 +27,18 @@ describe('TaskFormComponent', () => {
     component.add();
     const req = httpMock.expectOne('/api/tasks');
     expect(req.request.body).toEqual({ title: 'Nouvelle tâche' });
-    req.flush({ id: 1, title: 'Nouvelle tâche', done: false });
+    req.flush({ id: 1, title: 'Nouvelle tâche', done: false, dueDate: null });
     expect(component.title).toBe('');
+  });
+
+  it('should POST the dueDate when set and clear both fields', () => {
+    component.title = 'Rendre le rapport';
+    component.dueDate = '2026-11-15';
+    component.add();
+    const req = httpMock.expectOne('/api/tasks');
+    expect(req.request.body).toEqual({ title: 'Rendre le rapport', dueDate: '2026-11-15' });
+    req.flush({ id: 2, title: 'Rendre le rapport', done: false, dueDate: '2026-11-15' });
+    expect(component.title).toBe('');
+    expect(component.dueDate).toBe('');
   });
 });

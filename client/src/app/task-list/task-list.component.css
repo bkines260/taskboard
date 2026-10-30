@@ -45,6 +45,13 @@
   text-decoration: line-through;
 }
 
+.tb-item__due {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--tb-muted);
+  white-space: nowrap;
+}
+
 .tb-empty {
   padding: 28px 14px;
   text-align: center;

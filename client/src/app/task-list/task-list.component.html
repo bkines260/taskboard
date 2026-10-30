@@ -9,6 +9,9 @@
           (change)="toggle(task.id, $any($event.target).checked)"
         />
         <span class="tb-item__title">{{ task.title }}</span>
+        @if (task.dueDate) {
+          <span class="tb-item__due">{{ task.dueDate | date: 'dd/MM/yyyy' }}</span>
+        }
       </label>
     </li>
   } @empty {

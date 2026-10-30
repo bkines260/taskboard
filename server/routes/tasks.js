@@ -1,4 +1,5 @@
 const express = require('express');
+const { isValidDueDate } = require('../validators');
 
 const router = express.Router();
 
@@ -10,11 +11,14 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const { title } = req.body || {};
+  const { title, dueDate } = req.body || {};
   if (!title) {
     return res.status(400).json({ error: 'title is required' });
   }
-  const task = { id: nextId++, title, done: false };
+  if (dueDate != null && !isValidDueDate(dueDate)) {
+    return res.status(400).json({ error: 'dueDate must be a valid date (YYYY-MM-DD)' });
+  }
+  const task = { id: nextId++, title, done: false, dueDate: dueDate ?? null };
   tasks.push(task);
   res.status(201).json(task);
 });

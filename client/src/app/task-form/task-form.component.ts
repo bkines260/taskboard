@@ -11,12 +11,16 @@ import { TasksService } from '../tasks.service';
 export class TaskFormComponent {
   private readonly tasksService = inject(TasksService);
   title = '';
+  dueDate = '';
 
   add(): void {
     const title = this.title.trim();
     if (!title) {
       return;
     }
-    this.tasksService.addTask(title).subscribe(() => (this.title = ''));
+    this.tasksService.addTask(title, this.dueDate || undefined).subscribe(() => {
+      this.title = '';
+      this.dueDate = '';
+    });
   }
 }
