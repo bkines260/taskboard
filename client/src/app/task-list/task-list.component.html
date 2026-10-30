@@ -1,16 +1,17 @@
-<ul>
+<ul class="tb-list">
   @for (task of tasks(); track task.id) {
-    <li>
-      <label>
+    <li class="tb-item" [class.tb-item--done]="task.done">
+      <label class="tb-item__label">
         <input
+          class="tb-checkbox"
           type="checkbox"
           [checked]="task.done"
           (change)="toggle(task.id, $any($event.target).checked)"
         />
-        {{ task.title }}
+        <span class="tb-item__title">{{ task.title }}</span>
       </label>
     </li>
   } @empty {
-    <li>Aucune tâche</li>
+    <li class="tb-empty">Aucune tâche</li>
   }
 </ul>

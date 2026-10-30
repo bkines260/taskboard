@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+/* Thème global Taskboard */
+:root {
+  --tb-bg: #eef1f8;
+  --tb-surface: #ffffff;
+  --tb-text: #1f2430;
+  --tb-muted: #6b7280;
+  --tb-border: #e2e5ee;
+  --tb-accent: #4f46e5;
+  --tb-accent-hover: #4338ca;
+  --tb-accent-soft: #eef0ff;
+  --tb-success: #16a34a;
+  --tb-radius: 14px;
+  --tb-shadow: 0 10px 30px rgba(31, 36, 48, 0.08);
+  --tb-focus: 0 0 0 3px rgba(79, 70, 229, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--tb-text);
+  background:
+    radial-gradient(1200px 600px at 100% -10%, #dfe4fb 0%, transparent 55%),
+    radial-gradient(900px 500px at -10% 110%, #e7f6ef 0%, transparent 50%),
+    var(--tb-bg);
+  -webkit-font-smoothing: antialiased;
+}

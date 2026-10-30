@@ -1,4 +1,10 @@
-<form (ngSubmit)="add()">
-  <input type="text" name="title" placeholder="Titre" [(ngModel)]="title" />
-  <button type="submit">Ajouter</button>
+<form class="tb-form" (ngSubmit)="add()">
+  <input
+    class="tb-input"
+    type="text"
+    name="title"
+    placeholder="Ajouter une tâche…"
+    [(ngModel)]="title"
+  />
+  <button class="tb-button" type="submit">Ajouter</button>
 </form>

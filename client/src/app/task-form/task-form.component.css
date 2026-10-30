@@ -1,0 +1,51 @@
+.tb-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tb-input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 14px;
+  font-size: 0.95rem;
+  color: var(--tb-text);
+  background: #fff;
+  border: 1px solid var(--tb-border);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tb-input::placeholder {
+  color: var(--tb-muted);
+}
+
+.tb-input:focus {
+  border-color: var(--tb-accent);
+  box-shadow: var(--tb-focus);
+}
+
+.tb-button {
+  padding: 11px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--tb-accent);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.tb-button:hover {
+  background: var(--tb-accent-hover);
+}
+
+.tb-button:active {
+  transform: translateY(1px);
+}
+
+.tb-button:focus-visible {
+  box-shadow: var(--tb-focus);
+}
